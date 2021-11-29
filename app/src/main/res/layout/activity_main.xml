@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.example.instagram.MainViewModel" />
+
+        <variable
+            name="mainActivity"
+            type="com.example.instagram.MainActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="@{() -> mainViewModel.startTimer(chrono)}"
+            android:text="Start timer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="12dp"
+            android:onClick="@{() -> mainViewModel.checkButtonState(button3, chrono)}"
+            android:text="Pause timer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonStop"
+            app:layout_constraintStart_toEndOf="@+id/button" />
+
+        <Button
+
+            android:id="@+id/buttonStop"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="@{() -> mainViewModel.stopTimer(chrono)}"
+            android:text="Restart timer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Chronometer
+            android:id="@+id/chrono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
